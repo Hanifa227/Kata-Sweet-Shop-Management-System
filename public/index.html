@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sweet Shop</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ccc; }
+    input, button { margin: 5px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🍬 Sweet Shop Management</h1>
+
+  <div>
+    <input id="id" placeholder="ID" type="number" />
+    <input id="name" placeholder="Name" />
+    <input id="category" placeholder="Category" />
+    <input id="price" placeholder="Price" type="number" />
+    <input id="quantity" placeholder="Qty" type="number" />
+    <button onclick="addSweet()">Add Sweet</button>
+  </div>
+
+  <table id="sweetTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Qty</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="ui.js"></script>
+</body>
+</html>
