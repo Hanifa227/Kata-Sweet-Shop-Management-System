@@ -1,25 +1,42 @@
-#  Sweet Shop Management System (Backend Only)
+#  Sweet Shop Management System
 
-This is a backend-only implementation of a Sweet Shop Management System, built with **pure JavaScript** and tested using **Jest**. It covers basic inventory management features and demonstrates Test-Driven Development (TDD) principles.
+A simple, full-stack sweet inventory system built using **pure JavaScript**. It supports full CRUD operations, a browser-based UI, and test-driven backend logic using **Jest**.
 
 ---
 
 ##  Features
 
-- Add new sweets with ID, name, category, price, and quantity
-- Prevents duplicate IDs
-- Purchase sweets (with stock validation)
-- Restock sweets
-- Delete sweets
-- View current inventory
+###  Backend
+- Add, delete, purchase, and restock sweets
+- Prevent duplicate sweet IDs
+- Quantity and stock validation
+- Business logic written in pure JavaScript
+- Fully unit tested using **Jest**
+
+###  Frontend
+- Clean and interactive UI using HTML, CSS, and JavaScript
+- Persistent data storage via `localStorage`
+- Live search (by name or category)
+- Sortable table headers (ID, Name, Price, Quantity)
+- Responsive layout styled with CSS
 
 ---
 
-##  Running Tests
+### 🛠️ How to Set Up and Run Tests
 
-This project uses **Jest** for backend testing.
-
-###  Setup
+1. Open terminal in the project folder  
+2. Install dependencies:
 
 ```bash
 npm install
+```
+
+3. Run the test cases using:
+
+```bash
+npm test
+```
+
+This will execute all test cases written in `tests/Sweets.test.js` and confirm that your backend logic is working correctly.
+
+

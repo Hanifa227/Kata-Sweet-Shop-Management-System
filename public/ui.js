@@ -46,6 +46,7 @@ class Sweets {
 }
 
 const shop = new Sweets();
+let currentSort = { field: null, asc: true };
 
 function addSweet() {
   const sweet = {
@@ -62,7 +63,34 @@ function addSweet() {
 function renderTable() {
   const table = document.querySelector("#sweetTable tbody");
   table.innerHTML = "";
-  shop.viewSweets().forEach(s => {
+
+  let sweets = shop.viewSweets();
+
+  // 🔍 Search filter
+  const query = document.getElementById("searchBox")?.value.toLowerCase();
+  if (query) {
+    sweets = sweets.filter(s =>
+      s.name.toLowerCase().includes(query) ||
+      s.category.toLowerCase().includes(query)
+    );
+  }
+
+  // 🔃 Sorting
+  if (currentSort.field) {
+    sweets.sort((a, b) => {
+      const valA = a[currentSort.field];
+      const valB = b[currentSort.field];
+      if (typeof valA === "number") {
+        return currentSort.asc ? valA - valB : valB - valA;
+      }
+      return currentSort.asc
+        ? valA.localeCompare(valB)
+        : valB.localeCompare(valA);
+    });
+  }
+
+  // Render rows
+  sweets.forEach(s => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${s.id}</td>
@@ -78,5 +106,16 @@ function renderTable() {
     table.appendChild(row);
   });
 }
+
+
+function sortTable(field) {
+  if (currentSort.field === field) {
+    currentSort.asc = !currentSort.asc; // toggle order
+  } else {
+    currentSort = { field, asc: true };
+  }
+  renderTable();
+}
+
 
 renderTable();
